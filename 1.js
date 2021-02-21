@@ -1,10 +1,12 @@
 /**
-  * @author: 蔡忠继
   * @description: 二分查找
   */
 
 /**
-  * @author: 蔡忠继
+  * 仅当列表是有序的时候，二分查找才管用。例如，电话簿中的名字是按字母顺序排列的，因此可以使用二分查找来查找名字
+  */
+
+/**
   * @description: 函数binary_search接受一个有序数组和一个元素
   * @param {Array} arr 有序数组
   * @param {Any} item 元素

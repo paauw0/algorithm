@@ -1,10 +1,19 @@
 /**
-  * @author: 蔡忠继
   * @description: 选择排序
   */
 
 /**
-  * @author: 蔡忠继
+  * 每次检查数组的每个元素
+  * 找到想要的元素放入新数组
+  * 第一次需要检查n个元素
+  * 随后需要检查的元素依次为n-1,n-2,...,2,1
+  * 平均每次检查的元素数为1/2 * n
+  * 因此运行时间为O(n * 1/2 * n)
+  * 但大O表示法法省略诸如1/2这样的常数
+  * 因此简单地写作O(n * n)
+  */
+
+/**
   * @description: 找出数组中最小元素的函数
   * @param {Array} arr 数组
   */
@@ -21,7 +30,6 @@ function findSmallest(arr) {
 }
 
 /**
-  * @author: 蔡忠继
   * @description: 对数组进行排序
   * @param {Array} arr 数组
   */
