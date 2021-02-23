@@ -8,8 +8,8 @@
 
 /**
   * @description: 函数binary_search接受一个有序数组和一个元素
-  * @param {Array} arr 有序数组
-  * @param {Any} item 元素
+  * @param {array} arr 有序数组
+  * @param {any} item 元素
   */
 function binary_search(arr, item) {
   // 跟踪要在其中查找的数组部分——开始时为整个数组

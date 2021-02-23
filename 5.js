@@ -10,8 +10,8 @@
 
 /**
   * @description: 快速排序函数----针对数组为空或只包含一个元素
-  * @param {Array} arr
-  * @return {void | Array}
+  * @param {array} arr
+  * @return {void | array}
   */
 function quicksort_01(arr) {
   if (arr.length < 2) {
@@ -26,8 +26,8 @@ function quicksort_01(arr) {
 
 /**
   * @description: 快速排序函数----针对包含两个元素的数组进行排序
-  * @param {Array} arr
-  * @return {void | Array}
+  * @param {array} arr
+  * @return {void | array}
   */
 function quicksort_2(arr) {
   if (arr.length < 2) {
@@ -80,8 +80,8 @@ function quicksort_2(arr) {
 
 /**
   * @description: 快速排序函数
-  * @param {Array} arr
-  * @return {void | Array}
+  * @param {array} arr
+  * @return {void | array}
   */
 function quicksort(arr) {
   if (arr.length < 2) {

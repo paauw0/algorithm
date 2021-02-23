@@ -8,7 +8,7 @@
 
 /**
   * @description: 找出数组中最小元素的函数
-  * @param {Array} arr 数组
+  * @param {array} arr 数组
   */
 function sum(arr) {
   if (arr && arr.length > 0) {

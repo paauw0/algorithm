@@ -31,9 +31,9 @@
 
 /**
   * @description: 用欧几里得算法计算最大公约数
-  * @param {Number} a
-  * @param {Number} b
-  * @return {Number}
+  * @param {number} a
+  * @param {number} b
+  * @return {number}
   */
 function gcd(a, b) {
   if (a % b == 0) return b
@@ -53,9 +53,9 @@ console.log(gcd(200, 755))
 
 /**
   * @description: 最小公倍数
-  * @param {Number} a
-  * @param {Number} b
-  * @return {Number}
+  * @param {number} a
+  * @param {number} b
+  * @return {number}
   */
 function lcm(a, b) {
   return a * b / gcd(a, b)

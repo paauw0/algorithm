@@ -15,7 +15,7 @@
 
 /**
   * @description: 找出数组中最小元素的函数
-  * @param {Array} arr 数组
+  * @param {array} arr 数组
   */
 function findSmallest(arr) {
   let smallest = arr[0] // 存储最小的值
@@ -31,7 +31,7 @@ function findSmallest(arr) {
 
 /**
   * @description: 对数组进行排序
-  * @param {Array} arr 数组
+  * @param {array} arr 数组
   */
 function selectionSort(arr) {
   let newArr = []
