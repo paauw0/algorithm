@@ -21,7 +21,7 @@
   * Anuj、Peggy、Thom和Jonny都没有邻居，这是因为虽然有指向他们的箭头，但没有从他们出发指向其他人的箭头。这被称为有向图（directed graph），其中的关系是单向的
   * 无向图（undirected graph）没有箭头，直接相连的节点互为邻居 graph["alice"] = ["peggy"], graph["peggy"] = ["alice"]
   */
-let graph = {}
+const graph = {}
 graph["you"] = ["alice", "bob", "claire"]
 graph["bob"] = ["anuj", "peggy"]
 graph["alice"] = ["peggy"]
