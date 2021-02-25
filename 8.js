@@ -35,41 +35,63 @@
 // 出于简化考虑，这里假设要覆盖的州没有那么多，广播台也没有那么多。
 // 首先，创建一个列表，其中包含要覆盖的州。
 // 集合类似于列表，只是同样的元素只能出现一次，即集合不能包含重复的元素。
-const states_needed = new Set(["mt", "wa", "or", "id", "nv", "ut", "ca", "az"]) // 你传入一个数组，它被转换为集合
+let states_needed = [...new Set(["mt", "wa", "or", "id", "nv", "ut", "ca", "az"])] // 你传入一个数组，它被转换为集合
 
 // 还需要有可供选择的广播台清单，我选择使用散列表来表示它。其中的键为广播台的名称，值为广播台覆盖的州。
 const stations = {}
-stations["kone"] = new Set(["id", "nv", "ut"])
-stations["ktwo"] = new Set(["wa", "id", "mt"])
-stations["kthree"] = new Set(["or", "nv", "ca"])
-stations["kfour"] = new Set(["nv", "ut"])
-stations["kfive"] = new Set(["ca", "az"])
+stations["kone"] = [...new Set(["id", "nv", "ut"])]
+stations["ktwo"] = [...new Set(["wa", "id", "mt"])]
+stations["kthree"] = [...new Set(["or", "nv", "ca"])]
+stations["kfour"] = [...new Set(["nv", "ut"])]
+stations["kfive"] = [...new Set(["ca", "az"])]
 
 // 最后，需要使用一个集合来存储最终选择的广播台。
-const final_stations = new Set()
+const final_stations = []
 
-// 接下来需要计算要使用哪些广播台。正确的解可能有多个。
-// 你需要遍历所有的广播台，从中选择覆盖了最多的未覆盖州的广播台。
-// 我将这个广播台存储在best_station中。
-const best_station = null
-const states_covered = new Set()
+while (states_needed.length > 0) {
+  // 接下来需要计算要使用哪些广播台。正确的解可能有多个。
+  // 你需要遍历所有的广播台，从中选择覆盖了最多的未覆盖州的广播台。
+  // 我将这个广播台存储在best_station中。
+  let best_station = null
+  // states_covered是一个集合，包含该广播台覆盖的所有未覆盖的州。
+  let states_covered = []
+  // for循环迭代每个广播台，并确定它是否是最佳的广播台。
+  for (station in stations) {
+    const states_for_station = stations[station]
+    // 下面的代码计算交集。
+    // covered是一个集合，包含同时出现在states_needed和states_for_station中的州；
+    // 换言之，它包含当前广播台覆盖的一系列还未覆盖的州！
+    const covered = [...new Set([...states_needed].filter(x => states_for_station.includes(x)))]
+    // 接下来，你检查该广播台覆盖的州是否比best_station多。
+    if (covered.length > states_covered.length) {
+      // 如果是这样的，就将best_station设置为当前广播台。
+      best_station = station
+      states_covered = covered
+    }
+  }
+  // 你还需更新states_needed。由于该广播台覆盖了一些州，因此不用再覆盖这些州。
+  states_needed = [...new Set([...states_needed].filter(x => !states_covered.includes(x)))]
+  // 最后，你在for循环结束后将best_station添加到最终的广播台列表中。
+  final_stations.push(best_station)
+}
 
+console.log(final_stations)
 
 
 // 并集
-const a = new Set([1, 2, 3]);
-const b = new Set([4, 3, 2]);
-const union = new Set([...a, ...b]); // {1, 2, 3, 4}
+var a = new Set([1, 2, 3]);
+var b = new Set([4, 3, 2]);
+var union = new Set([...a, ...b]); // {1, 2, 3, 4}
 
 // 交集
-const a = new Set([1, 2, 3]);
-const b = new Set([4, 3, 2]);
-const intersect = new Set([...a].filter(x => b.has(x))); // {2, 3}
+var a = new Set([1, 2, 3]);
+var b = new Set([4, 3, 2]);
+var intersect = new Set([...a].filter(x => b.has(x))); // {2, 3}
 
 // 差集
-const a = new Set([1, 2, 3]);
-const b = new Set([4, 3, 2]);
-const difference = new Set([...a].filter(x => !b.has(x))); // {1}
+var a = new Set([1, 2, 3]);
+var b = new Set([4, 3, 2]);
+var difference = new Set([...a].filter(x => !b.has(x))); // {1}
 
 
 /**
